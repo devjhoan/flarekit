@@ -1,0 +1,62 @@
+---
+title: Wrangler Setup Documentation
+description: Using wrangler to setup database (D1) and start development server
+---
+
+# API
+
+Todos estos comandos se deben ejecutar desde la carpeta `apps/api`
+
+0. Ir a la carpeta `apps/api`
+
+```bash
+cd apps/api
+```
+
+## Wrangler Database Setup
+
+1. Create a new D1 database
+
+```bash
+bunx wrangler d1 create {db-name}
+```
+
+Esto nos dará un log como este:
+```json
+{
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "database",
+      "database_id": "f419bf6f-fd94-4344-b23a-72bfe753c7b4"
+    }
+  ]
+}
+```
+
+2. Vamos a copiar el `database_id` y el `binding` para usarlo en el archivo `wrangler.jsonc`
+
+```json
+{
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "database",
+      "database_id": "f419bf6f-fd94-4344-b23a-72bfe753c7b4"
+    }
+  ]
+}
+```
+
+3. Ahora debemos ejecutar las migraciones para la base de datos
+
+```bash
+bunx wrangler d1 migrations apply {db-name} --local
+```
+
+## Start Development Server
+
+```bash
+bunx wrangler dev
+```
+
