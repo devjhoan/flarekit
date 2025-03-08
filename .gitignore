@@ -3,3 +3,4 @@ dist
 .turbo
 *.sqlite
 .env
+.dev.vars
