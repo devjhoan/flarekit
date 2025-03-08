@@ -5,3 +5,4 @@ dist
 .env
 .dev.vars
 .wrangler
+vite.config.ts.timestamp-*.mjs
