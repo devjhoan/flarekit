@@ -6,12 +6,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { authClient } from "@/lib/auth";
 import { useState } from "react";
+import { toast } from "sonner";
 
 type Provider = keyof typeof avaliableProviders;
 
 async function handleSocialLogin(provider: Provider, callbackURL: string) {
-	await new Promise((resolve) => setTimeout(resolve, 2000));
-	await authClient.signIn.social({
+	return await authClient.signIn.social({
 		provider,
 		callbackURL,
 	});
@@ -21,12 +21,12 @@ export function LoginForm() {
 	const [isLoading, setIsLoading] = useState(false);
 	const [searchParams] = useSearchParams();
 
+	const redirect = searchParams.get("redirect");
 	const [credentials, setCredentials] = useState({
 		email: "",
 		password: "",
 	});
 
-	const redirect = searchParams.get("redirect");
 	async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
 		event.preventDefault();
 		setIsLoading(true);
@@ -70,14 +70,21 @@ export function LoginForm() {
 											e.preventDefault();
 
 											try {
-												await handleSocialLogin(
+												const result = await handleSocialLogin(
 													key as Provider,
 													`${window.location.origin}${redirect ?? "/dashboard"}`,
 												);
+
+												if (result.error) {
+													throw new Error(result.error.message);
+												}
 											} catch (error) {
-												console.error(error);
-											} finally {
 												setIsLoading(false);
+												console.error(error);
+
+												if (error instanceof Error) {
+													toast.error(error.message);
+												}
 											}
 										}}
 									>
