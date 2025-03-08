@@ -4,3 +4,4 @@ dist
 *.sqlite
 .env
 .dev.vars
+.wrangler
