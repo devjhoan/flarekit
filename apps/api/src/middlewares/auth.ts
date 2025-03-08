@@ -1,4 +1,5 @@
 import type { Context, Next } from "hono";
+import type { HonoEnv } from "@/bindings";
 import { roles } from "@/utils/config";
 import { auth } from "@/utils/auth";
 
@@ -13,8 +14,7 @@ const roleLevels = roles.reduce(
 );
 
 export const authMiddleware = async (c: Context, next: Next) => {
-	const session = await auth.api.getSession({
-		// @ts-expect-error - TODO: fix this
+	const session = await auth(c).api.getSession({
 		headers: c.req.raw.headers,
 	});
 
@@ -27,7 +27,7 @@ export const authMiddleware = async (c: Context, next: Next) => {
 };
 
 export const roleMiddleware = (requiredRole: ValidRoles) => {
-	return async (c: Context, next: Next) => {
+	return async (c: Context<HonoEnv>, next: Next) => {
 		const user = c.get("user");
 
 		if (!user?.role) {

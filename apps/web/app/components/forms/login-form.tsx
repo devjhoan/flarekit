@@ -64,7 +64,7 @@ export function LoginForm() {
 										variant="outline"
 										disabled={isLoading}
 										type="button"
-										className="w-full"
+										className="w-full dark:bg-muted dark:hover:bg-muted/80"
 										onClick={async (e) => {
 											setIsLoading(true);
 											e.preventDefault();
@@ -87,7 +87,7 @@ export function LoginForm() {
 							</div>
 
 							<div className="relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t after:border-border">
-								<span className="relative z-10 bg-background px-2 text-muted-foreground">O continua con</span>
+								<span className="relative z-10 bg-card px-2 text-muted-foreground">O continua con</span>
 							</div>
 
 							<div className="grid gap-6">

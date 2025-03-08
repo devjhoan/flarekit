@@ -1,15 +1,25 @@
 {
 	"compilerOptions": {
+		// Enable latest features
+		"lib": ["ESNext"],
 		"target": "ESNext",
 		"module": "ESNext",
-		"moduleResolution": "Bundler",
-		"skipLibCheck": true,
-		"lib": ["ESNext"],
-		"strict": true,
-		"jsx": "react-jsx",
-		"jsxImportSource": "hono/jsx",
 
-		/* Paths */
+		// Bundler mode
+		"moduleResolution": "Bundler",
+		"verbatimModuleSyntax": true,
+		"noEmit": false,
+
+		// Best practices
+		"strict": true,
+		"skipLibCheck": true,
+		"noFallthroughCasesInSwitch": true,
+
+		// Types
+		"types": ["@cloudflare/workers-types/2023-07-01", "@types/node"],
+		"jsxImportSource": "react",
+
+		// Paths Alias
 		"baseUrl": ".",
 		"paths": {
 			"@/*": ["./src/*"]

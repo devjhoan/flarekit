@@ -1,4 +1,4 @@
-import { SettingsIcon, HelpCircleIcon, LayoutDashboardIcon, ServerCrashIcon, UserIcon } from "lucide-react";
+import { SettingsIcon, HelpCircleIcon, LayoutDashboardIcon, ServerCrashIcon } from "lucide-react";
 import type { NavItem } from "@/components/sidebar/nav-items";
 import { GoogleIcon } from "@/components/icons";
 
@@ -15,20 +15,11 @@ export const sidebarItems: Record<string, NavItem[]> = {
 			title: "Configuración",
 			url: "/settings",
 			icon: SettingsIcon,
-			minimalRole: "admin",
-			items: [
-				{
-					title: "Perfil",
-					url: "/settings/profile",
-					icon: UserIcon,
-				},
-			],
 		},
 		{
 			title: "Ayuda",
 			url: "/help",
 			icon: HelpCircleIcon,
-			minimalRole: "admin",
 		},
 	],
 };

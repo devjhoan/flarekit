@@ -1,0 +1,28 @@
+{
+	// JSON Schema
+	"$schema": "../../node_modules/wrangler/config-schema.json",
+
+	// General Settings
+	"name": "test-cf",
+	"main": "src/index.ts",
+
+	// Compatibility
+	"compatibility_date": "2025-03-08",
+	"compatibility_flags": ["nodejs_compat"],
+
+	// Observability
+	"observability": {
+		"enabled": true,
+		"head_sampling_rate": 1
+	},
+
+	// Database Settings
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "database",
+			"database_id": "00000000-0000-0000-0000-000000000000",
+			"migrations_dir": "migrations"
+		}
+	]
+}
