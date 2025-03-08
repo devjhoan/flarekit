@@ -1,0 +1,102 @@
+---
+title: Configuración
+icon: Cog
+---
+
+## Estructura del Proyecto
+
+El proyecto utiliza una arquitectura monorepo con Turborepo:
+
+```
+fullstack-starter/
+├── apps/
+│   ├── api/         # Backend API
+│   ├── web/         # Frontend Next.js
+│   └── docs/        # Documentación
+├── packages/        # Paquetes compartidos
+├── turbo.json      # Configuración de Turborepo
+└── package.json    # Configuración del proyecto
+```
+
+## Configuración del Frontend
+
+El archivo `apps/web/app/lib/constants.ts` contiene las configuraciones principales:
+
+```typescript
+// URL de la API
+export const API_URL = "http://localhost:8787";
+
+// Información de la marca
+export const BRAND = {
+  name: "TuMarca",
+  summary: "Descripción de tu marca",
+  logo: TuLogoIcon,
+};
+
+// Navegación y elementos de la barra lateral
+export const sidebarItems = {
+  General: [
+    {
+      title: "Resumen",
+      url: "/dashboard",
+      icon: LayoutDashboardIcon,
+    },
+  ],
+  // Agrega más secciones según necesites
+};
+
+// Roles y permisos
+export const rolesWeights = {
+  user: 0,
+  admin: 1,
+};
+
+// Proveedores de autenticación
+export const avaliableProviders = {
+  google: {
+    name: "Google",
+    icon: GoogleIcon,
+  },
+  // Configura más proveedores aquí
+};
+```
+
+## Personalización
+
+### Temas y Estilos
+
+La aplicación utiliza:
+- Tailwind CSS para estilos
+- shadcn/ui para componentes base
+- Personalización de temas en `tailwind.config.js`
+
+### Navegación
+
+Para modificar la navegación:
+1. Edita `sidebarItems` en `constants.ts`
+2. Cada item puede incluir:
+   - `title`: Nombre del enlace
+   - `url`: Ruta de destino
+   - `icon`: Ícono del enlace
+   - `minimalRole`: Rol mínimo requerido
+   - `items`: Subitems (opcional)
+
+### Variables de Entorno
+
+#### API (.env)
+```env
+API_PORT=8787
+WEB_URL=http://localhost:5173
+API_URL=http://localhost:8787
+BETTER_AUTH_SECRET=
+BETTER_AUTH_URL=
+DB_FILE_NAME=file:db.sqlite
+ENCRYPTION_SECRET=
+```
+
+## Seguridad
+
+- Las claves secretas deben tener mínimo 32 caracteres
+- No compartas los archivos `.env` en el control de versiones
+- Utiliza variables de entorno diferentes para desarrollo y producción
+- Mantén actualizadas las dependencias del proyecto 

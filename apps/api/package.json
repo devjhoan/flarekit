@@ -1,0 +1,36 @@
+{
+	"name": "@repo/api",
+	"description": "API for the repo",
+	"scripts": {
+		"start": "bun run src/index.ts",
+		"dev": "bun run --hot src/index.ts",
+		"format": "biome format --write",
+		"lint": "biome lint",
+		"build": "bun build src/index.ts --outdir dist --target bun --format esm --minify",
+		"db:generate": "drizzle-kit generate",
+		"db:migrate": "drizzle-kit migrate",
+		"db:studio": "drizzle-kit studio"
+	},
+	"exports": {
+		"./hc": {
+			"import": {
+				"default": "./dist/hc.js",
+				"types": "./dist/hc.d.ts"
+			}
+		}
+	},
+	"dependencies": {
+		"@hono/zod-validator": "^0.4.3",
+		"@libsql/client": "^0.14.0",
+		"better-auth": "^1.2.3",
+		"drizzle-kit": "^0.30.5",
+		"drizzle-orm": "^0.40.0",
+		"hono": "^4.7.4",
+		"uuid": "^11.1.0",
+		"zod": "^3.24.2"
+	},
+	"devDependencies": {
+		"@types/bun": "latest",
+		"@types/uuid": "^10.0.0"
+	}
+}

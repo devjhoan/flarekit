@@ -1,0 +1,18 @@
+{
+	"title": "Core",
+	"description": "Getting started",
+	"icon": "LayoutPanelLeft",
+	"root": true,
+	"pages": [
+		"---Introduction---",
+		"index",
+		"features",
+		"---Getting Started---",
+		"installation",
+		"configuration",
+		"authentication",
+		"---Backend---",
+		"routes",
+		"middlewares"
+	]
+}

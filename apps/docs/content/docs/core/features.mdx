@@ -1,0 +1,96 @@
+---
+title: Características
+icon: LayoutPanelLeft
+---
+
+Este proyecto fullstack está construido con tecnologías modernas y está diseñado para ofrecer una experiencia de desarrollo óptima junto con un alto rendimiento en producción.
+
+## Stack Tecnológico
+
+### Backend (API)
+
+La API está construida con un enfoque moderno y eficiente:
+
+- **Runtime**: [Bun](https://bun.sh) - Un runtime JavaScript todo en uno con rendimiento excepcional
+- **Framework**: [Hono](https://hono.dev) - Framework ligero y rápido
+- **Base de Datos**:
+  - [DrizzleORM](https://orm.drizzle.team) - ORM TypeScript nativo
+  - [LibSQL](https://libsql.org) - Base de datos compatible con SQLite
+- **Validación**: 
+  - [Zod](https://zod.dev) - Validación de esquemas TypeScript-first
+  - [@hono/zod-validator](https://github.com/honojs/middleware/tree/main/packages/zod-validator) - Integración de Zod con Hono
+
+#### Herramientas de Desarrollo
+
+- **Formateo y Linting**: [Biome](https://biome.sh)
+- **Base de Datos**:
+  - `drizzle-kit generate` - Generación de migraciones
+  - `drizzle-kit migrate` - Ejecución de migraciones
+  - `drizzle-kit studio` - UI para gestión de base de datos
+
+### Frontend (Web)
+
+La aplicación web está construida con React y herramientas modernas:
+
+- **Framework**: [React 19](https://react.dev) - La última versión de React
+- **Routing**: [React Router 7](https://reactrouter.com) - Sistema de enrutamiento moderno
+- **UI Components**: 
+  - [Radix UI](https://www.radix-ui.com) - Componentes accesibles y sin estilos
+	- [shadcn/ui](https://ui.shadcn.com) - Componentes de UI modernos y accesibles
+
+- **Estilos**:
+  - [Tailwind CSS](https://tailwindcss.com) - Framework CSS utility-first
+
+- **Características Adicionales**:
+  - [sonner](https://sonner.emilkowal.ski) - Sistema de notificaciones toast
+  - [lucide-react](https://lucide.dev) - Iconos modernos
+
+### Características Compartidas
+
+- **TypeScript** - Tipado estático para mejor desarrollo
+- **Autenticación**: [better-auth](https://github.com/better-auth) - Sistema de autenticación moderno
+- **Estructura**: Monorepo con workspaces
+- **Hot Reload** - Recarga en tiempo real durante desarrollo
+
+## Scripts Disponibles
+
+### API
+
+```bash
+# Desarrollo
+npm run dev        # Inicia el servidor con hot reload
+npm run start      # Inicia el servidor en producción
+
+# Base de datos
+npm run db:generate # Genera migraciones
+npm run db:migrate  # Ejecuta migraciones
+npm run db:studio   # Abre UI de gestión de DB
+
+# Código
+npm run format     # Formatea el código
+npm run lint       # Ejecuta el linter
+npm run build      # Construye para producción
+```
+
+### Web
+
+```bash
+# Desarrollo
+npm run dev        # Inicia el servidor de desarrollo
+npm run build      # Construye para producción
+npm run start      # Inicia el servidor de producción
+npm run typecheck  # Verifica tipos TypeScript
+```
+
+## Estructura del Proyecto
+
+El proyecto sigue una estructura monorepo con las siguientes aplicaciones principales:
+
+```
+apps/
+  ├── api/         # Backend API
+  ├── web/         # Frontend React
+  └── docs/        # Documentación
+```
+
+Cada aplicación mantiene sus propias dependencias mientras comparte configuraciones y tipos comunes a través del workspace.

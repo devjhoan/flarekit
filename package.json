@@ -1,0 +1,29 @@
+{
+	"name": "fullstack-starter",
+	"description": "🚀 | A boilerplate for fullstack development",
+	"author": {
+		"name": "Jhoan",
+		"email": "znotjhoan@gmail.com",
+		"url": "https://github.com/devjhoan"
+	},
+	"scripts": {
+		"dev": "turbo dev",
+		"build": "turbo build"
+	},
+	"packageManager": "bun@1.2.4",
+	"workspaces": [
+		"apps/*",
+		"packages/*"
+	],
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@types/bun": "latest"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	},
+	"trustedDependencies": [
+		"@biomejs/biome",
+		"esbuild"
+	]
+}
