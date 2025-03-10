@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
+import { getUserInitials } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -58,15 +59,6 @@ export default function Settings() {
 		} finally {
 			setIsLoading(false);
 		}
-	};
-
-	const getInitials = (name: string) => {
-		return name
-			.split(" ")
-			.map((n) => n[0])
-			.join("")
-			.toUpperCase()
-			.substring(0, 2);
 	};
 
 	return (
@@ -135,7 +127,7 @@ export default function Settings() {
 										<p className="text-sm font-medium mb-2">Vista previa</p>
 										<Avatar className="h-24 w-24">
 											<AvatarImage src={formData.image} alt={formData.name} />
-											<AvatarFallback className="text-lg">{getInitials(formData.name)}</AvatarFallback>
+											<AvatarFallback className="text-lg">{getUserInitials(formData.name)}</AvatarFallback>
 										</Avatar>
 									</div>
 								</div>
@@ -181,10 +173,6 @@ export default function Settings() {
 						</div>
 					</CardContent>
 				</Card>
-			</section>
-
-			<section>
-				<pre>{JSON.stringify(user, null, 2)}</pre>
 			</section>
 		</div>
 	);

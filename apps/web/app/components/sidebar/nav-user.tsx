@@ -3,6 +3,7 @@ import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/c
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useTheme } from "@/components/theme-provider";
 import { authClient, type User } from "@/lib/auth";
+import { getUserInitials } from "@/lib/utils";
 import { Link } from "react-router";
 
 import {
@@ -37,7 +38,7 @@ function UserMenu({ user }: { user: User }) {
 				>
 					<Avatar className="h-8 w-8 rounded-lg">
 						<AvatarImage src={user.image ?? ""} alt={user.name} />
-						<AvatarFallback className="rounded-lg">{user.name.slice(0, 2).toUpperCase()}</AvatarFallback>
+						<AvatarFallback className="rounded-lg">{getUserInitials(user.name)}</AvatarFallback>
 					</Avatar>
 					<div className="grid flex-1 text-left text-sm leading-tight">
 						<span className="truncate font-semibold">{user.name}</span>
@@ -56,7 +57,7 @@ function UserMenu({ user }: { user: User }) {
 					<div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
 						<Avatar className="h-8 w-8 rounded-lg">
 							<AvatarImage src={user.image ?? ""} alt={user.name} />
-							<AvatarFallback className="rounded-lg">{user.name.slice(0, 2).toUpperCase()}</AvatarFallback>
+							<AvatarFallback className="rounded-lg">{getUserInitials(user.name)}</AvatarFallback>
 						</Avatar>
 						<div className="grid flex-1 text-left text-sm leading-tight">
 							<span className="truncate font-semibold">{user.name}</span>
