@@ -1,72 +1,72 @@
 # 🚀 Fullstack Starter
 
-Un boilerplate moderno para desarrollo fullstack que utiliza las últimas tecnologías.
+A modern boilerplate for fullstack development using the latest technologies.
 
-## 📋 Prerrequisitos
+## 📋 Prerequisites
 
-- [Bun](https://bun.sh/) (versión 1.2.4 o superior)
-- [Node.js](https://nodejs.org/) (versión LTS recomendada)
+- [Bun](https://bun.sh/) (version 1.2.4 or higher)
+- [Node.js](https://nodejs.org/) (recommended LTS version)
 - [Git](https://git-scm.com/)
 
-## 🛠 Instalación
+## 🛠 Installation
 
-1. Clona el repositorio:
+1. Clone the repository:
 ```bash
-git clone <url-del-repositorio>
+git clone <repository-url>
 cd fullstack-starter
 ```
 
-2. Instala las dependencias:
+2. Install dependencies:
 ```bash
 bun install
 ```
 
-## 🚀 Desarrollo
+## 🚀 Development
 
-Para iniciar el entorno de desarrollo:
+To start the development environment:
 
 ```bash
 bun dev
 ```
 
-Este comando iniciará todos los servicios en modo desarrollo utilizando Turborepo.
+This command will start all services in development mode using Turborepo.
 
-## 📦 Construcción para Producción
+## 📦 Production Build
 
-Para construir el proyecto para producción:
+To build the project for production:
 
 ```bash
 bun build
 ```
 
-## 🏗 Estructura del Proyecto
+## 🏗 Project Structure
 
-El proyecto utiliza una arquitectura monorepo con Turborepo:
+The project uses a monorepo architecture with Turborepo:
 
 ```
 fullstack-starter/
-├── apps/           # Aplicaciones principales
-├── packages/       # Paquetes compartidos
-├── turbo.json     # Configuración de Turborepo
-└── package.json   # Configuración del proyecto
+├── apps/           # Main applications
+├── packages/       # Shared packages
+├── turbo.json      # Turborepo configuration
+└── package.json    # Project configuration
 ```
 
-## 🔧 Tecnologías Principales
+## 🔧 Main Technologies
 
 - **Runtime**: Bun
-- **Gestor de Monorepo**: Turborepo
+- **Monorepo Manager**: Turborepo
 - **Linting/Formatting**: Biome
-- **Lenguaje**: TypeScript
+- **Language**: TypeScript
 
-## 👥 Contribución
+## 👥 Contribution
 
-Las contribuciones son bienvenidas. Por favor, asegúrate de seguir las guías de estilo del proyecto utilizando Biome.
+Contributions are welcome. Please make sure to follow the project's style guides using Biome.
 
-## 📄 Licencia
+## 📄 License
 
-Este proyecto está bajo la Licencia MIT.
+This project is under the MIT License.
 
-## 👤 Autor
+## 👤 Author
 
 - **Jhoan**
   - GitHub: [@devjhoan](https://github.com/devjhoan)
